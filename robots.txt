@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://doceria-delicias.vercel.app/sitemap.xml

@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Doceria Delícias — Confeitaria Artesanal & Festas em São Bernardo do Campo</title>
+  <meta name="description" content="Bolos decorados, doces finos, docinhos de 20g, tortas artesanais e kits festa no Centro de São Bernardo do Campo. Feito com amor por mulheres empreendedoras." />
+  <meta name="theme-color" content="#FAF5EE" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://doceria-delicias.vercel.app/" />
+  <meta property="og:title" content="Doceria Delícias — Confeitaria Artesanal & Festas em SBC" />
+  <meta property="og:description" content="Bolos decorados, doces finos, docinhos de 20g, tortas artesanais e kits festa no Centro de São Bernardo do Campo. Feito com amor por mulheres empreendedoras." />
+  <meta property="og:image" content="https://doceria-delicias.vercel.app/imagens/imgi_45_760689901_1301980860824982_2633008581735955685_n.jpg" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Doceria Delícias — Confeitaria Artesanal & Festas em SBC" />
+  <meta name="twitter:description" content="Bolos decorados, doces finos, docinhos de 20g, tortas artesanais e kits festa no Centro de São Bernardo do Campo." />
+  <meta name="twitter:image" content="https://doceria-delicias.vercel.app/imagens/imgi_45_760689901_1301980860824982_2633008581735955685_n.jpg" />
+
+  <!-- Google Fonts: Dela Gothic One, Titan One, Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Titan+One&display=swap" rel="stylesheet" />
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍰</text></svg>" />
+
+  <!-- Schema.org JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Bakery",
+    "name": "Doceria Delícias",
+    "image": "https://doceria-delicias.vercel.app/imagens/imgi_45_760689901_1301980860824982_2633008581735955685_n.jpg",
+    "telephone": "+55-11-98014-5064",
+    "url": "https://doceria-delicias.vercel.app",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Rua Américo Brasiliense, 709 - Centro",
+      "addressLocality": "São Bernardo do Campo",
+      "addressRegion": "SP",
+      "postalCode": "09715-022",
+      "addressCountry": "BR"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": -23.7126,
+      "longitude": -46.5492
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        "opens": "09:00",
+        "closes": "19:00"
+      }
+    ],
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.7",
+      "reviewCount": "88",
+      "bestRating": "5"
+    },
+    "servesCuisine": "Confeitaria Artesanal Brasileira",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Cardápio Doceria Delícias",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MenuItem",
+            "name": "Cento de Docinhos 20g",
+            "description": "5 sabores à escolha em forminhas pétala rosa poá"
+          },
+          "price": "130.00",
+          "priceCurrency": "BRL"
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "MenuItem",
+            "name": "Combo Alegre seu Dia",
+            "description": "Fatia generosa de Bolo de Festa + Café Coado quentinho"
+          },
+          "price": "16.00",
+          "priceCurrency": "BRL"
+        }
+      ]
+    }
+  }
+  </script>
+
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ========================================================================= -->
+  <!-- SCENE 01: FIXED HEADER (3-COL MINIMALIST REFERENCE GEOMETRY)              -->
+  <!-- ========================================================================= -->
+  <header class="site-header">
+    <div class="header-container">
+      
+      <!-- Left: Brand Wordmark -->
+      <div class="header-left">
+        <a href="#hero" class="brand-logo-link">
+          <span class="brand-logo-text">DOCERIA DELÍCIAS</span>
+        </a>
+      </div>
+
+      <!-- Center: Pill Menu Button with Wavy Confectionery Lines -->
+      <div class="header-center">
+        <button id="menu-toggle-btn" class="nav-pill-btn" aria-label="Abrir Menu Principal" aria-expanded="false">
+          <div class="pill-bars-svg">
+            <svg class="w-12" height="8" viewBox="0 0 64 8">
+              <path fill="none" stroke="#261114" stroke-width="2.4" stroke-linecap="round" d="M 0 4 Q 8 0, 16 4 Q 24 8, 32 4 Q 40 0, 48 4 Q 56 8, 64 4" />
+            </svg>
+            <svg class="w-12" height="8" viewBox="0 0 64 8">
+              <path fill="none" stroke="#261114" stroke-width="2.4" stroke-linecap="round" d="M 0 4 Q 8 0, 16 4 Q 24 8, 32 4 Q 40 0, 48 4 Q 56 8, 64 4" />
+            </svg>
+            <svg class="w-12" height="8" viewBox="0 0 64 8">
+              <path fill="none" stroke="#261114" stroke-width="2.4" stroke-linecap="round" d="M 0 4 Q 8 0, 16 4 Q 24 8, 32 4 Q 40 0, 48 4 Q 56 8, 64 4" />
+            </svg>
+          </div>
+        </button>
+      </div>
+
+      <!-- Right: Navigation Links -->
+      <div class="header-right">
+        <a href="#realms-section" class="header-nav-link hide-mobile">cardápio</a>
+        <a href="#bestsellers-section" class="header-nav-link hide-mobile">queridinhos</a>
+        <a href="#celebration-section" class="header-nav-link hide-mobile">kits festa</a>
+        <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20encomenda%20na%20Doceria%20Del%C3%ADcias." target="_blank" rel="noopener noreferrer" class="header-nav-link cart-link">
+          <span>encomendas</span>
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- FULLSCREEN MEGA-MENU OVERLAY (WARM KRAFT BACKDROP)                        -->
+  <!-- ========================================================================= -->
+  <div id="mega-menu-overlay" class="mega-menu-overlay" aria-hidden="true">
+    <div class="menu-content-wrapper">
+      <nav class="menu-nav-list">
+        <div class="menu-nav-row">
+          <a href="#hero" class="menu-giant-link">Início</a>
+          <img src="assets/hero/herocandy1.png" alt="Doce" class="menu-candy-icon" />
+          <a href="#atelier-section" class="menu-giant-link">Vitrine Interativa</a>
+        </div>
+        <div class="menu-nav-row">
+          <a href="#realms-section" class="menu-giant-link">4 Linhas Mestras</a>
+          <img src="assets/hero/client_brigadeiro.png" alt="Doce" class="menu-candy-icon" />
+          <a href="#bestsellers-section" class="menu-giant-link">Mais Pedidos</a>
+        </div>
+        <div class="menu-nav-row">
+          <a href="#celebration-section" class="menu-giant-link">Kits de Festa</a>
+          <img src="assets/hero/client_cupcake.png" alt="Doce" class="menu-candy-icon" />
+          <a href="#heritage-section" class="menu-giant-link">Nossa Loja (709)</a>
+        </div>
+        <div class="menu-nav-row">
+          <a href="#reviews-section" class="menu-giant-link">Avaliações 4.7★</a>
+          <img src="assets/hero/herocandy9.png" alt="Doce" class="menu-candy-icon" />
+          <a href="https://wa.me/5511980145064" target="_blank" class="menu-giant-link highlight-link">WhatsApp Express</a>
+        </div>
+      </nav>
+      <div class="menu-footer-info">
+        <p class="menu-address">Rua Américo Brasiliense, 709 — Centro, São Bernardo do Campo • (11) 98014-5064 / (11) 2381-1488</p>
+        <p class="menu-badge-fem">✨ Confeitaria Artesanal Gerida por Mulheres Empreendedoras • Estacionamento no Local</p>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <!-- ========================================================================= -->
+    <!-- SCENE 02: HERO STAGE (3D SANDWICH + FALLING SWEETS + SCALLOP STICKER)    -->
+    <!-- ========================================================================= -->
+    <section id="hero" class="hero-section">
+      
+      <!-- Ambient Gradient Fade -->
+      <div class="hero-bottom-fade"></div>
+
+      <!-- Depth of Field Blurred Candies -->
+      <div class="blurred-candies-layer" aria-hidden="true">
+        <img src="assets/hero/blur1.png" alt="blur candy" class="blur-candy blur-c1" />
+        <img src="assets/hero/blur2.png" alt="blur candy" class="blur-candy blur-c2" />
+        <img src="assets/hero/blur7.png" alt="blur candy" class="blur-candy blur-c3" />
+        <img src="assets/hero/blur10.png" alt="blur candy" class="blur-candy blur-c4" />
+      </div>
+
+      <!-- 3D Open Packaging Sandwich Structure -->
+      <div class="sandwich-stage-wrapper">
+        <div class="bag-rear-layer"></div>
+
+        <div class="candies-orbit-layer">
+          <div class="falling-candy candy-knot">
+            <img src="assets/hero/herocandy1.png" alt="Doce" />
+          </div>
+          <div class="falling-candy candy-ring">
+            <img src="assets/hero/herocandy2.png" alt="Doce" />
+          </div>
+          <div class="falling-candy candy-bear">
+            <img src="assets/hero/herocandy14.png" alt="Doce" />
+          </div>
+          <div class="falling-candy candy-brigadeiro">
+            <img src="assets/hero/client_brigadeiro.png" alt="Brigadeiro 20g" />
+          </div>
+          <div class="falling-candy candy-marshmallow">
+            <img src="assets/hero/herocandy3.png" alt="Doce" />
+          </div>
+          <div class="falling-candy candy-sour">
+            <img src="assets/hero/herocandy7.png" alt="Doce" />
+          </div>
+          <div class="falling-candy candy-cupcake">
+            <img src="assets/hero/client_cupcake.png" alt="Cupcake Floral" />
+          </div>
+          <div class="falling-candy candy-truffle">
+            <img src="assets/hero/herocandy9.png" alt="Trufa" />
+          </div>
+          <div class="falling-candy candy-shell">
+            <img src="assets/hero/herocandy10.png" alt="Doce" />
+          </div>
+          <div class="falling-candy candy-torta">
+            <img src="assets/hero/client_torta.png" alt="Torta Artesanal" />
+          </div>
+        </div>
+
+        <div class="bag-front-layer"></div>
+      </div>
+
+      <!-- Monumental Headline & Subtitle -->
+      <div class="hero-typography-container">
+        <h1 class="hero-giant-heading">
+          DOCERIA DELÍCIAS <br class="max-md:hidden" />
+          <span class="heading-line-2">CONFEITARIA DE AFETO</span>
+        </h1>
+        <p class="hero-lead-paragraph">
+          Bolos artesanais, docinhos de 20g e o carinho que São Bernardo do Campo ama em cada celebração.
+        </p>
+      </div>
+
+      <!-- Golden Caramel Scalloped Sticker Button -->
+      <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20encomenda." target="_blank" rel="noopener noreferrer" class="hero-sticker-badge" aria-label="Peça Já pelo WhatsApp">
+        <svg class="sticker-scallop-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M100 0C110 0 115 10 125 12C135 14 145 10 154 17C163 24 163 35 170 43C177 51 188 56 191 66C194 76 189 86 189 96C189 106 194 116 191 126C188 136 177 141 170 149C163 157 163 168 154 175C145 182 135 178 125 180C115 182 110 192 100 192C90 192 85 182 75 180C65 178 55 182 46 175C37 168 37 157 30 149C23 141 12 136 9 126C6 116 11 106 11 96C11 86 6 76 9 66C12 56 23 51 30 43C37 35 37 24 46 17C55 10 65 14 75 12C85 10 90 0 100 0Z" fill="#E8A317"/>
+        </svg>
+        <div class="sticker-badge-content">
+          <span class="sticker-star">★</span>
+          <span class="sticker-text-main">PEÇA</span>
+          <span class="sticker-text-sub">ONLINE</span>
+        </div>
+      </a>
+
+      <!-- Music / Store Status Badge -->
+      <div class="hero-audio-badge">
+        <svg viewBox="0 0 44 44" class="audio-scallop-icon" fill="none">
+          <path d="M22 0C25 0 27 3 30 4C33 5 36 4 39 7C42 10 41 13 43 16C45 19 48 21 48 24C48 27 45 29 43 32C41 35 42 38 39 41C36 44 33 43 30 44C27 45 25 48 22 48C19 48 17 45 14 44C11 43 8 44 5 41C2 38 3 35 1 32C-1 29 2 27 2 24C2 21 -1 19 1 16C3 13 2 10 5 7C8 4 11 5 14 4C17 3 19 0 22 0Z" fill="#261114"/>
+          <path d="M19 17V30C19 32 17 33 15 33C13 33 11 31 11 29C11 27 13 25 15 25C16 25 17 25 18 26V20L29 17V28C29 30 27 31 25 31C23 31 21 29 21 27C21 25 23 23 25 23C26 23 27 23 28 24V14L19 17Z" fill="#FAF5EE"/>
+        </svg>
+        <div class="audio-tooltip-label">
+          <span class="pulse-green-dot"></span>
+          <span>Loja Aberta • Centro SBC</span>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 03: PINNED CLOUD ZOOM (PORTAL TO THE UNIVERSE)                      -->
+    <!-- ========================================================================= -->
+    <section id="portal-transition" class="portal-transition-section">
+      <div class="portal-clouds-parallax">
+        <img src="assets/hero/oblak1.png" alt="cloud top" class="portal-cloud-top" />
+        <img src="assets/hero/levioblak.png" alt="cloud left" class="portal-cloud-left" />
+      </div>
+
+      <div class="portal-sticky-center">
+        <span class="section-eyebrow">CONFEITARIA DE SÃO BERNARDO DO CAMPO</span>
+        <h2 class="portal-monumental-h2">
+          BEM-VINDO AO UNIVERSO DELÍCIAS
+        </h2>
+        <p class="portal-sub-caption">
+          ...onde cada receita nasce do carinho, ingredientes nobres e sabor inesquecível.
+        </p>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 04: INTERACTIVE ATELIER REALM (HOTSPOTS + MODAL POPUPS)             -->
+    <!-- ========================================================================= -->
+    <section id="atelier-section" class="atelier-interactive-section">
+      <div class="section-header-centered">
+        <span class="section-eyebrow">VITRINE DE CRIAÇÕES ESPECIAIS</span>
+        <h2 class="section-title-chunky">EXPLORE O ATELIÊ EM DETALHES</h2>
+        <p class="section-subtitle">Toque nos pontos brilhantes para conhecer a história e os segredos de cada obra.</p>
+      </div>
+
+      <div class="atelier-stage-canvas">
+        <!-- Background Panorama Presentation -->
+        <div class="atelier-backdrop-card">
+          <img src="assets/photos/imgi_49_759688368_1504559688352809_2381658203778130232_n.jpg" alt="Mesa de Bolos e Criações" class="atelier-bg-image" />
+          <div class="atelier-overlay-gradient"></div>
+
+          <!-- Hotspot 1: Saint-Honoré -->
+          <button class="atelier-hotspot-btn hs-1" data-target="modal-sainthonore" aria-label="Ver Saint-Honoré">
+            <span class="hotspot-ping"></span>
+            <span class="hotspot-core">1</span>
+            <span class="hotspot-label-pill">Gâteau Saint-Honoré</span>
+          </button>
+
+          <!-- Hotspot 2: Torta de Limão -->
+          <button class="atelier-hotspot-btn hs-2" data-target="modal-limao" aria-label="Ver Torta de Limão">
+            <span class="hotspot-ping"></span>
+            <span class="hotspot-core">2</span>
+            <span class="hotspot-label-pill">Torta de Limão Merengada</span>
+          </button>
+
+          <!-- Hotspot 3: Torta Holandesa -->
+          <button class="atelier-hotspot-btn hs-3" data-target="modal-holandesa" aria-label="Ver Torta Holandesa">
+            <span class="hotspot-ping"></span>
+            <span class="hotspot-core">3</span>
+            <span class="hotspot-label-pill">Torta Holandesa Nobre</span>
+          </button>
+
+          <!-- Hotspot 4: Bento Cake -->
+          <button class="atelier-hotspot-btn hs-4" data-target="modal-bentocake" aria-label="Ver Bento Cake">
+            <span class="hotspot-ping"></span>
+            <span class="hotspot-core">4</span>
+            <span class="hotspot-label-pill">Bento Cakes de Afeto</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Atelier Modals Container -->
+      <div id="atelier-modal-backdrop" class="atelier-modal-backdrop" aria-hidden="true">
+        <div class="atelier-modal-card">
+          <button id="atelier-modal-close" class="modal-close-btn" aria-label="Fechar Detalhes">&times;</button>
+          <div id="atelier-modal-body" class="modal-body-content">
+            <!-- Dynamically populated via JS -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 05: 4 REALMS / ASYMMETRICAL 2x2 EDITORIAL GRID                      -->
+    <!-- ========================================================================= -->
+    <section id="realms-section" class="realms-editorial-section">
+      <div class="section-header-split">
+        <div>
+          <span class="section-eyebrow">NOSSO CARDÁPIO ARTESANAL</span>
+          <h2 class="section-title-chunky">AS 4 LINHAS MESTRAS DA CASA</h2>
+        </div>
+        <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20do%20card%C3%A1pio%20completo." target="_blank" class="editorial-viewall-link">
+          <span>ver cardápio completo</span> &rarr;
+        </a>
+      </div>
+
+      <div class="realms-grid-container">
+        
+        <!-- Realm 1: Bolos de Festa Recheados -->
+        <div class="realm-card realm-card-pink">
+          <div class="realm-card-content">
+            <span class="realm-tag">CLÁSSICOS DE ANIVERSÁRIO</span>
+            <h3 class="realm-title">Bolos de Festa Recheados</h3>
+            <p class="realm-desc">Ninho com morangos frescos, Prestígio artesanal, Floresta Negra com raspas de chocolate nobre e o tradicional bolo de coco úmido.</p>
+            <a href="https://wa.me/5511980145064?text=Quero%20encomendar%20um%20Bolo%20de%20Festa!" target="_blank" class="realm-action-btn">
+              <span>Encomendar por Quilo</span>
+            </a>
+          </div>
+          <div class="realm-image-overflow">
+            <img src="assets/photos/imgi_49_759688368_1504559688352809_2381658203778130232_n.jpg" alt="Bolos de Festa Recheados" class="realm-overflow-img" />
+          </div>
+        </div>
+
+        <!-- Realm 2: Docinhos de Festa 20g -->
+        <div class="realm-card realm-card-cream">
+          <div class="realm-card-content">
+            <span class="realm-tag">FORMED COM 20 GRAMAS</span>
+            <h3 class="realm-title">Centos de Docinhos 20g</h3>
+            <p class="realm-desc">Brigadeiros de chocolate nobre, beijinhos com coco ralado, docinhos de churros com doce de leite e dois amores em forminhas pétala rosa poá.</p>
+            <a href="https://wa.me/5511980145064?text=Quero%20encomendar%20Centos%20de%20Docinhos!" target="_blank" class="realm-action-btn">
+              <span>Montar Cento de Doces</span>
+            </a>
+          </div>
+          <div class="realm-image-overflow">
+            <img src="assets/photos/imgi_20_772678860_1515170930625018_2695658208416178057_n.jpg" alt="Centos de Docinhos de 20g" class="realm-overflow-img" />
+          </div>
+        </div>
+
+        <!-- Realm 3: Confeitaria Especial & Tortas -->
+        <div class="realm-card realm-card-caramel">
+          <div class="realm-card-content">
+            <span class="realm-tag">ALTA CONFEITARIA</span>
+            <h3 class="realm-title">Tortas Especiais & Francesas</h3>
+            <p class="realm-desc">Gâteau Saint-Honoré caramelizado, Torta Holandesa com biscoitos Calypso e Torta de Limão com picos de merengue maçaricado.</p>
+            <a href="https://wa.me/5511980145064?text=Quero%20encomendar%20uma%20Torta%20Especial!" target="_blank" class="realm-action-btn">
+              <span>Ver Tortas Especiais</span>
+            </a>
+          </div>
+          <div class="realm-image-overflow">
+            <img src="assets/photos/imgi_43_761795002_1506463874829057_1790820669500515269_n.jpg" alt="Tortas Especiais" class="realm-overflow-img" />
+          </div>
+        </div>
+
+        <!-- Realm 4: Cafeteria & Salgados Artesanais -->
+        <div class="realm-card realm-card-sage">
+          <div class="realm-card-content">
+            <span class="realm-tag">BALCÃO DIÁRIO & CAFETERIA</span>
+            <h3 class="realm-title">Lanches & Salgados Artesanais</h3>
+            <p class="realm-desc">Lanches naturais no pão pita, croissants prensados, salgados artesanais de forno, cafés coados na hora e sucos naturais.</p>
+            <a href="https://wa.me/5511980145064?text=Quero%20pedir%20salgados%20e%20lanches!" target="_blank" class="realm-action-btn">
+              <span>Pedir para Balcão / Retirada</span>
+            </a>
+          </div>
+          <div class="realm-image-overflow">
+            <img src="assets/photos/imgi_45_760689901_1506184384857006_6364469204126021487_n.jpg" alt="Lanches e Cafeteria" class="realm-overflow-img" />
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 06: BESTSELLERS HORIZONTAL RAIL / VITRINE RÁPIDA                    -->
+    <!-- ========================================================================= -->
+    <section id="bestsellers-section" class="bestsellers-rail-section">
+      <div class="bestsellers-ambient-glow"></div>
+
+      <div class="section-header-centered">
+        <span class="section-eyebrow">DIRETO DO FORNO & DO BALCÃO</span>
+        <h2 class="section-title-chunky">OS QUERIDINHOS DO CLIENTE</h2>
+        <p class="section-subtitle">Combos verificados na loja física e os itens mais pedidos da semana em São Bernardo.</p>
+      </div>
+
+      <div class="bestsellers-track-wrapper">
+        <div class="bestsellers-rail-track">
+          
+          <!-- Product Card 1 -->
+          <div class="product-rail-card">
+            <div class="product-tag-pill">MAIS PEDIDO</div>
+            <div class="product-img-wrapper">
+              <img src="assets/hero/client_brigadeiro.png" alt="Cento de Docinhos 20g" class="product-cutout-img" />
+            </div>
+            <h3 class="product-name">Cento de Docinhos 20g</h3>
+            <p class="product-subtitle">5 sabores à escolha • Forminhas pétala rosa poá</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 130,00</span>
+              <a href="https://wa.me/5511980145064?text=Quero%20o%20Cento%20de%20Docinhos%2020g" target="_blank" class="product-add-btn" aria-label="Pedir Cento de Docinhos">+</a>
+            </div>
+          </div>
+
+          <!-- Product Card 2: Real Verified Combo from imgi_46 -->
+          <div class="product-rail-card highlight-product">
+            <div class="product-tag-pill accent-pill">COMBO REAL R$ 16</div>
+            <div class="product-img-wrapper">
+              <img src="assets/photos/imgi_49_759688368_1504559688352809_2381658203778130232_n.jpg" alt="Combo Alegre Seu Dia" class="product-cutout-img round-crop" />
+            </div>
+            <h3 class="product-name">Combo "Alegre seu Dia"</h3>
+            <p class="product-subtitle">Fatia generosa de Bolo de Festa + Café Coado quentinho</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 16,00</span>
+              <a href="https://wa.me/5511980145064?text=Quero%20o%20Combo%20Alegre%20seu%20Dia%20de%20R$%2016" target="_blank" class="product-add-btn" aria-label="Pedir Combo Alegre Seu Dia">+</a>
+            </div>
+          </div>
+
+          <!-- Product Card 3: Real Verified Combo from imgi_46 -->
+          <div class="product-rail-card">
+            <div class="product-tag-pill">COMBO REAL R$ 14</div>
+            <div class="product-img-wrapper">
+              <img src="assets/photos/imgi_45_760689901_1506184384857006_6364469204126021487_n.jpg" alt="Combo Lanche da Tarde" class="product-cutout-img round-crop" />
+            </div>
+            <h3 class="product-name">Combo Lanche da Tarde</h3>
+            <p class="product-subtitle">Suco Natural da Fruta + Salgado Artesanal de Forno</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 14,00</span>
+              <a href="https://wa.me/5511980145064?text=Quero%20o%20Combo%20Lanche%20de%20R$%2014" target="_blank" class="product-add-btn" aria-label="Pedir Combo Lanche">+</a>
+            </div>
+          </div>
+
+          <!-- Product Card 4: Pote de Biscoito Artesanal -->
+          <div class="product-rail-card">
+            <div class="product-tag-pill">PRODUÇÃO PRÓPRIA</div>
+            <div class="product-img-wrapper">
+              <img src="assets/hero/client_torta.png" alt="Pote de Biscoitos" class="product-cutout-img" />
+            </div>
+            <h3 class="product-name">Biscoito de Milho & Goiabada</h3>
+            <p class="product-subtitle">Pote artesanal crocante com recheio de goiabada pura</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 18,00</span>
+              <a href="https://wa.me/5511980145064?text=Quero%20o%20Pote%20de%20Biscoito%20de%20Milho" target="_blank" class="product-add-btn" aria-label="Pedir Pote de Biscoito">+</a>
+            </div>
+          </div>
+
+          <!-- Product Card 5: Pão de Mel Especial -->
+          <div class="product-rail-card">
+            <div class="product-tag-pill">PARA PRESENTEAR</div>
+            <div class="product-img-wrapper">
+              <img src="assets/hero/client_cupcake.png" alt="Pão de Mel Trufado" class="product-cutout-img" />
+            </div>
+            <h3 class="product-name">Pão de Mel com Laço Nobre</h3>
+            <p class="product-subtitle">Massa de especiarias banhada no chocolate nobre</p>
+            <div class="product-price-row">
+              <span class="product-price">R$ 12,00</span>
+              <a href="https://wa.me/5511980145064?text=Quero%20P%C3%A3o%20de%20Mel%20Trufado" target="_blank" class="product-add-btn" aria-label="Pedir Pão de Mel">+</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 07: STICKY SPLIT NARRATIVE (KITS DE FESTA & ENCOMENDAS)             -->
+    <!-- ========================================================================= -->
+    <section id="celebration-section" class="celebration-split-section">
+      <div class="celebration-container">
+        
+        <!-- Left Column: Sticky Narrative Block -->
+        <div class="celebration-sticky-col">
+          <span class="section-eyebrow">CELEBRAÇÕES COMPLETAS COM AFETO</span>
+          <h2 class="section-title-chunky">KITS PRONTOS PARA VOCÊ SÓ CELEBRAR</h2>
+          <p class="celebration-lead-desc">
+            Do café da manhã surpresa na cama a grandes aniversários em família: criamos caixas e kits completos com bolo, salgados quentinhos, doces e bebidas, sem estresse.
+          </p>
+          <div class="celebration-cta-box">
+            <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Quero%20montar%20um%20kit%20festa%20personalizado." target="_blank" class="primary-solid-btn">
+              <span>Personalizar Meu Kit Festa</span>
+            </a>
+            <span class="celebration-hint">Entregamos ou você retira com estacionamento próprio na porta!</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Stacked Celebration Cards -->
+        <div class="celebration-cards-stack">
+          
+          <!-- Card 1: Festa na Caixa -->
+          <div class="celebration-card">
+            <div class="celebration-card-media">
+              <img src="assets/photos/imgi_33_768963089_1510920527716725_6689784127781575774_n.jpg" alt="Festa na Caixa" class="celebration-img" />
+            </div>
+            <div class="celebration-card-body">
+              <span class="celebration-tag">KIT ALL-IN-ONE</span>
+              <h3 class="celebration-name">Festa na Caixa Completa</h3>
+              <p class="celebration-text">Bento Cake personalizado + Salgadinhos de festa na marmita térmica + 2 Pães de Mel grandes + Pote de biscoitos caseiros + 2 Refrigerantes em lata.</p>
+              <div class="celebration-card-footer">
+                <span class="celebration-badge">Pronto para Comemorar a Dois</span>
+                <a href="https://wa.me/5511980145064?text=Quero%20encomendar%20a%20Festa%20na%20Caixa!" target="_blank" class="card-inline-cta">Pedir Agora &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 2: Cesta de Presente & Café da Manhã -->
+          <div class="celebration-card">
+            <div class="celebration-card-media">
+              <img src="assets/photos/imgi_36_764881244_1508997637909014_5282495921669112690_n.jpg" alt="Cesta de Café da Manhã" class="celebration-img" />
+            </div>
+            <div class="celebration-card-body">
+              <span class="celebration-tag">PRESENTE INESQUECÍVEL</span>
+              <h3 class="celebration-name">Cesta de Café & Afeto</h3>
+              <p class="celebration-text">Cesta artesanal forrada com celofane e laço nobre contendo mini pizzas caseiras, pães de queijo, pães de mel decorados e tag comemorativa.</p>
+              <div class="celebration-card-footer">
+                <span class="celebration-badge">Embalagem de Presente Inclusa</span>
+                <a href="https://wa.me/5511980145064?text=Quero%20encomendar%20uma%20Cesta%20de%20Caf%C3%A9!" target="_blank" class="card-inline-cta">Pedir Agora &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 3: Kit Chá de Bebê & Maternidade -->
+          <div class="celebration-card">
+            <div class="celebration-card-media">
+              <img src="assets/photos/imgi_55_760492256_1502652131876898_8618054544397471767_n.jpg" alt="Kit Chá de Bebê" class="celebration-img" />
+            </div>
+            <div class="celebration-card-body">
+              <span class="celebration-tag">MATERNIDADE & CHÁS</span>
+              <h3 class="celebration-name">Kit Maternidade & Chá de Bebê</h3>
+              <p class="celebration-text">Cupcakes florais modelados em tons pastel, pães de mel no palito com nome do bebê, maçãs decoradas e docinhos finos personalizados.</p>
+              <div class="celebration-card-footer">
+                <span class="celebration-badge">Personalização Sob Medida</span>
+                <a href="https://wa.me/5511980145064?text=Quero%20or%C3%A7amento%20para%20Ch%C3%A1%20de%20Beb%C3%AA!" target="_blank" class="card-inline-cta">Pedir Agora &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card 4: Bolo Sweet 16 Vintage -->
+          <div class="celebration-card">
+            <div class="celebration-card-media">
+              <img src="assets/photos/imgi_56_759823642_1502647601877351_4488551642792813702_n.jpg" alt="Bolo Vintage Lambeth" class="celebration-img" />
+            </div>
+            <div class="celebration-card-body">
+              <span class="celebration-tag">ESTÉTICA COQUETTE / LAMBETH</span>
+              <h3 class="celebration-name">Bolos Vintage & Debutantes</h3>
+              <p class="celebration-text">Babados clássicos Lambeth, laços de cetim delicados, glitter comestível e paleta de cores personalizada para datas inesquecíveis.</p>
+              <div class="celebration-card-footer">
+                <span class="celebration-badge">Design Escultural Exclusivo</span>
+                <a href="https://wa.me/5511980145064?text=Quero%20or%C3%A7amento%20para%20Bolo%20Vintage!" target="_blank" class="card-inline-cta">Pedir Agora &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 08: SPLIT BRAND HERITAGE (50/50 STOREFRONT & MANIFESTO)             -->
+    <!-- ========================================================================= -->
+    <section id="heritage-section" class="heritage-split-section">
+      <div class="heritage-container">
+        
+        <!-- Left: Real Storefront Photo Card -->
+        <div class="heritage-media-col">
+          <div class="storefront-card-frame">
+            <img src="assets/photos/imgi_46_762796818_1506180048190773_4973795088410697461_n.jpg" alt="Fachada da Loja Física - Rua Américo Brasiliense 709" class="storefront-img" />
+            <div class="storefront-seal-badge">
+              <img src="assets/photos/imgi_2_52416039_1589996947799114_4427940054714810368_n.jpg" alt="Selo Oficial Doceria Delícias" class="official-seal-img" />
+            </div>
+            <div class="storefront-address-pill">
+              <span>📍 Rua Américo Brasiliense, 709 • Centro, SBC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Manifesto & Verified Pillars -->
+        <div class="heritage-content-col">
+          <span class="section-eyebrow">NOSSA HISTÓRIA & PROPÓSITO</span>
+          <h2 class="section-title-chunky">FEITO COM AMOR POR MULHERES EMPREENDEDORAS</h2>
+          <p class="heritage-lead-text">
+            No coração de São Bernardo do Campo, a Doceria Delícias nasceu da paixão em transformar momentos do cotidiano e grandes celebrações familiares em memórias doces e inesquecíveis.
+          </p>
+
+          <div class="heritage-pillars-grid">
+            <div class="heritage-pillar-item">
+              <div class="pillar-icon-box">✨</div>
+              <div>
+                <h4 class="pillar-title">100% Produção Própria</h4>
+                <p class="pillar-desc">Receitas de família com ingredientes selecionados, sem misturas industriais prontas.</p>
+              </div>
+            </div>
+            <div class="heritage-pillar-item">
+              <div class="pillar-icon-box">🚗</div>
+              <div>
+                <h4 class="pillar-title">Estacionamento Exclusivo</h4>
+                <p class="pillar-desc">Comodidade e tranquilidade para retirar bolos e encomendas pesadas na porta.</p>
+              </div>
+            </div>
+            <div class="heritage-pillar-item">
+              <div class="pillar-icon-box">👩‍🍳</div>
+              <div>
+                <h4 class="pillar-title">Negócio de Empreendedoras</h4>
+                <p class="pillar-desc">Empresa formalmente reconhecida pelo acolhimento, carinho no atendimento e capricho visual.</p>
+              </div>
+            </div>
+            <div class="heritage-pillar-item">
+              <div class="pillar-icon-box">⚡</div>
+              <div>
+                <h4 class="pillar-title">Balcão, Retirada & Entrega</h4>
+                <p class="pillar-desc">Café coado na hora para quem passa e pronta-entrega para salvar sua festa.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="heritage-actions-row">
+            <a href="https://maps.google.com/?q=Rua+Americo+Brasiliense+709+Centro+Sao+Bernardo+do+Campo" target="_blank" class="secondary-outline-btn">
+              <span>Como Chegar à Loja</span>
+            </a>
+            <span class="heritage-hours-note">Aberto hoje • Fecha às 19:00</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 09: PINNED REVIEW SATELLITE STAGE (ORBITAL PROVA SOCIAL 4.7★)       -->
+    <!-- ========================================================================= -->
+    <section id="reviews-section" class="reviews-satellite-section">
+      <div class="section-header-centered">
+        <span class="section-eyebrow">AVALIAÇÕES REAIS NO GOOGLE MAPS</span>
+        <h2 class="section-title-chunky">QUEM PROVA, SE APAIXONA</h2>
+        <p class="section-subtitle">Nota 4,7 estrelas com base em 88 avaliações reais de clientes da região do ABC.</p>
+      </div>
+
+      <div class="reviews-satellite-stage">
+        
+        <!-- Central Affective Heart / Rating Badge -->
+        <div class="reviews-center-emblem">
+          <div class="rating-huge-number">4.7</div>
+          <div class="rating-stars-row">★★★★★</div>
+          <span class="rating-reviews-count">88 avaliações no Google</span>
+        </div>
+
+        <!-- Satellite Orbit Review Cards -->
+        <div class="reviews-satellite-grid">
+          
+          <!-- Review 1: Ivani Gomes (Local Guide) -->
+          <div class="satellite-review-card sc-1">
+            <div class="review-header">
+              <div class="reviewer-avatar">IG</div>
+              <div>
+                <h4 class="reviewer-name">Ivani Gomes</h4>
+                <span class="reviewer-badge">Local Guide • 15 avaliações</span>
+              </div>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <p class="review-quote">
+              "Sempre encomendo o bolo e docinhos de festa, dessa vez pedi tb doces finos e bem vividos…. Estava tudo lindo e delicioso!!! Parabéns pelo capricho e pela qualidade, além disso o atendimento tb é ótimo!"
+            </p>
+          </div>
+
+          <!-- Review 2: Ligia Santos Rissardi (Local Guide) -->
+          <div class="satellite-review-card sc-2">
+            <div class="review-header">
+              <div class="reviewer-avatar">LS</div>
+              <div>
+                <h4 class="reviewer-name">Ligia Santos Rissardi</h4>
+                <span class="reviewer-badge">Local Guide • 14 avaliações</span>
+              </div>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <p class="review-quote">
+              "Tudo feito com um carinho muito grande. Desde o chá até os bolos deliciosos. Os salgados são leves e tamanho justo."
+            </p>
+          </div>
+
+          <!-- Review 3: Tamires Martins -->
+          <div class="satellite-review-card sc-3">
+            <div class="review-header">
+              <div class="reviewer-avatar">TM</div>
+              <div>
+                <h4 class="reviewer-name">Tamires Martins</h4>
+                <span class="reviewer-badge">5 avaliações</span>
+              </div>
+              <span class="review-stars">★★★★★</span>
+            </div>
+            <p class="review-quote">
+              "Eu adorei! Peguei os docinhos com 20 gramas, são enormes gostosos e com um preço muito justo, as forminhas que vem são ótimas tbm bem apresentáveis. Todos os convidados também gostaram."
+            </p>
+          </div>
+
+          <!-- Review 4: Atendimento do Proprietário -->
+          <div class="satellite-review-card sc-4 highlight-owner-card">
+            <div class="review-header">
+              <div class="reviewer-avatar owner-avatar">DD</div>
+              <div>
+                <h4 class="reviewer-name">Doceria Delícias (Proprietária)</h4>
+                <span class="reviewer-badge">Resposta ao Cliente</span>
+              </div>
+              <span class="review-heart">❤️</span>
+            </div>
+            <p class="review-quote">
+              "Ficamos contentes que tenham gostado. Que todo o carinho e amor a que temos em nossos produtos tenha agradado a seus convidados e que sua festa tenha sido um sucesso. Conte sempre com a gente!"
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SCENE 10: MONUMENTAL CTA & COMPREHENSIVE VERIFIED FOOTER                  -->
+    <!-- ========================================================================= -->
+    <section id="contact-cta-section" class="monumental-footer-cta-section">
+      <div class="footer-cta-container">
+        
+        <!-- Big Typography Heading -->
+        <h2 class="footer-giant-h2">
+          DOCES MOMENTOS <br />
+          <span class="highlight-cta-text">ESPERAM POR VOCÊ</span>
+        </h2>
+        <p class="footer-cta-subtitle">
+          Faça sua encomenda online pelo WhatsApp ou venha tomar um café artesanal em nossa loja no Centro de SBC.
+        </p>
+
+        <!-- Direct WhatsApp Action Box -->
+        <div class="whatsapp-action-box">
+          <div class="quick-order-chips">
+            <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20Bolo%20de%20Festa." target="_blank" class="chip-action-btn">🎂 Orçamento de Bolo</a>
+            <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20de%20encomendar%20Cento%20de%20Docinhos%2020g." target="_blank" class="chip-action-btn">🍬 Cento de Docinhos 20g</a>
+            <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20de%20encomendar%20a%20Festa%20na%20Caixa." target="_blank" class="chip-action-btn">🎁 Festa na Caixa</a>
+            <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20de%20encomendar%20Tortas%20Especiais." target="_blank" class="chip-action-btn">🥧 Tortas Especiais</a>
+          </div>
+
+          <a href="https://wa.me/5511980145064?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20uma%20encomenda%20na%20Doceria%20Del%C3%ADcias." target="_blank" class="whatsapp-main-button">
+            <span class="wa-icon">💬</span>
+            <span class="wa-text">Falar com a Confeitaria no WhatsApp (11) 98014-5064</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Comprehensive Structured Footer -->
+      <footer class="structured-site-footer">
+        <div class="footer-grid-container">
+          
+          <!-- Col 1: Brand & Bio -->
+          <div class="footer-col-brand">
+            <span class="footer-logo-title">DOCERIA DELÍCIAS</span>
+            <p class="footer-brand-bio">
+              Confeitaria artesanal, bolos decorados, docinhos tradicionais de 20g e kits de festa no Centro de São Bernardo do Campo.
+            </p>
+            <div class="footer-tags-pill">
+              <span>✨ Empresa de Mulheres Empreendedoras</span>
+            </div>
+          </div>
+
+          <!-- Col 2: Localização & Estacionamento -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Localização Física</h4>
+            <p class="footer-text"><a href="https://maps.google.com/?q=Rua+Am%C3%A9rico+Brasiliense,+709+-+Centro,+S%C3%A3o+Bernardo+do+Campo+-+SP" target="_blank" rel="noopener noreferrer" class="footer-link-inline">Rua Américo Brasiliense, 709</a></p>
+            <p class="footer-text">Centro, São Bernardo do Campo — SP</p>
+            <p class="footer-text">CEP 09715-022 • Plus Code: 7FQ3+2J</p>
+            <p class="footer-highlight-tag">🚗 Estacionamento Exclusivo no Local</p>
+          </div>
+
+          <!-- Col 3: Atendimento & Contato -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Canais de Contato</h4>
+            <p class="footer-text"><strong>WhatsApp:</strong> <a href="https://wa.me/5511980145064" target="_blank" rel="noopener noreferrer" class="footer-link-inline">(11) 98014-5064</a></p>
+            <p class="footer-text"><strong>Telefone Fixo:</strong> <a href="tel:1123811488" class="footer-link-inline">(11) 2381-1488</a></p>
+            <p class="footer-text"><strong>Instagram:</strong> <a href="https://instagram.com/doceriadelicias" target="_blank" rel="noopener noreferrer" class="footer-link-inline">@doceriadelicias</a></p>
+            <p class="footer-text"><strong>Horário:</strong> Aberto até 19:00 (Seg a Sáb)</p>
+          </div>
+
+          <!-- Col 4: Modalidades & Segurança -->
+          <div class="footer-col">
+            <h4 class="footer-heading">Atendimento</h4>
+            <ul class="footer-list">
+              <li>✓ Compras presenciais na loja</li>
+              <li>✓ Retirada no balcão / na porta</li>
+              <li>✓ Entrega e encomendas programadas</li>
+              <li>✓ CNPJ: 20.445.747/0001-60</li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="footer-copyright-bottom">
+          <p>© 2026 Doceria Delícias. Todos os direitos reservados. Feito com afeto e farinha artesanal em São Bernardo do Campo.</p>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
